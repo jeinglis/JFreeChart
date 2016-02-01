@@ -23,5 +23,82 @@ public class RangeTest {
 	public void tearDown() throws Exception {
 	}
 
-
+	/*
+	 * The following are tests designed by our team for assignment 2
+	 */
+	
+	@Test
+	public void combineTest()	{
+		
+	}
+	
+	@Test
+	public void constrainTest()	{
+		
+	}
+	
+	@Test
+	public void containsTest()	{
+		
+	}
+	
+	@Test
+	public void equalsTest()	{
+		
+	}
+	
+	@Test
+	public void expandTest()	{
+		
+	}
+	
+	@Test
+	public void expandToIncludeTest()	{
+		
+	}
+	
+	@Test
+	public void getCentralValueTest()	{
+		
+	}
+	
+	@Test
+	public void getLengthTest()	{
+		
+	}
+	
+	@Test
+	public void getLowerBoundTest()	{
+		
+	}
+	
+	@Test
+	public void getUpperBoundTest()	{
+		
+	}
+	
+	@Test
+	public void hashCodeTest()	{
+		
+	}
+	
+	@Test
+	public void intersectsTest()	{
+		
+	}
+	
+	@Test
+	public void shiftTest()	{
+		
+	}
+	
+	@Test
+	public void shiftAllowZeroCrossingTest()	{
+		
+	}
+	
+	@Test
+	public void toStringTest()	{
+		
+	}
 }
