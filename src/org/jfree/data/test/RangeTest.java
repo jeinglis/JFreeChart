@@ -1,8 +1,6 @@
 package org.jfree.data.test;
 
 import static org.junit.Assert.*;
-import junit.framework.TestCase;
-
 import org.jfree.data.Range;
 import org.junit.After;
 import org.junit.Before;
