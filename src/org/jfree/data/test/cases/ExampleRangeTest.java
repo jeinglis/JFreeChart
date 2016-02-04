@@ -1,4 +1,4 @@
-package org.jfree.data.test;
+package org.jfree.data.test.cases;
 
 import static org.junit.Assert.*;
 import org.jfree.data.Range;
@@ -6,18 +6,12 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class RangeTest {
+public class ExampleRangeTest {
 	private Range exampleRange;
-	private Range range1;
-	private Range range2;
-	private double value;
 
 	@Before
 	public void setUp() throws Exception {
 		exampleRange = new Range(-1,1);
-		range1 = null;
-		range2 = null;
-		value = 0;
 	}
 
 	@Test
@@ -58,37 +52,55 @@ public class RangeTest {
 		// Case # 1
 		range1 = new Range(0, 10);
 		value = 5;
-		assertEquals("The constraint of (0, 10) and 5 should be 5", 5, range1.constrain(value), 0);
+		assertEquals("The constraint of 5 on (0, 10) should output 5", 5, range1.constrain(value), 0);
 		
 		
 		// Case # 2
 		range1 = new Range(0, 10);
 		value = 100;
-		assertEquals("The constraint of (0, 10) and 100 should be 10", 10, range1.constrain(value), 0);
+		assertEquals("The constraint of 100 on (0, 10) should output 10", 10, range1.constrain(value), 0);
 		
 		
 		// Case # 3  TODO - figure out why this fails
 		range1 = new Range(0, 10);
 		value = -99;
-		assertEquals("The constraint of (0, 10) and -99 should be 0", 0, range1.constrain(value), 0);
+		assertEquals("The constraint of -99 on (0, 10) should output 0", 0, range1.constrain(value), 0);
 		
 		
 		// Case # 4
+		range1 = new Range(0, 10);
+		value = 10;
+		assertEquals("The constraint of 10 on (0, 10) should output 10", 10, range1.constrain(value), 0);
 		
 		
 		// Case # 5
+		range1 = new Range(0, 10);
+		value = 0;
+		assertEquals("The constraint of 0 on (0, 10) should output 0", 0, range1.constrain(value), 0);
 		
 		
 		// Case # 6
+		range1 = new Range(0, 10);
+		value = -0.01;
+		assertEquals("The constraint of -0.01 on (0, 10) should output 0", 0, range1.constrain(value), 0);
 		
 		
 		// Case # 7
+		range1 = new Range(0, 10);
+		value = 0.01;
+		assertEquals("The constraint of 0.01 on (0, 10) should output 0.01", 0.01, range1.constrain(value), 0);
 		
 		
 		// Case # 8
+		range1 = new Range(0, 10);
+		value = 9.99;
+		assertEquals("The constraint of 9.99 on (0, 10) should output 9.99", 9.99, range1.constrain(value), 0);
 		
 		
 		// Case # 9
+		range1 = new Range(0, 10);
+		value = 10.01;
+		assertEquals("The constraint of 10.01 on (0, 10) should output 10", 10, range1.constrain(value), 0);
 	}
 	
 	@Test
@@ -98,6 +110,8 @@ public class RangeTest {
 	
 	@Test
 	public void equalsTest()	{
+		// Case # 1: Test Null Input
+		range1 = new Range(0, 10);
 		
 	}
 	
