@@ -13,7 +13,7 @@ public class RangeCombineTest {
 	
 	@Before
 	public void setup() throws Exception	{
-		
+		// There is no setup required for this class
 	}
 	
 	@After
@@ -22,17 +22,23 @@ public class RangeCombineTest {
 	}
 	
 	@Test
-	public void case_1() {
-		
+	public void combine_1() {
+		range1 = null;
+		range2 = null;
+		assertEquals("The combined value of null and null should be null", null, Range.combine(range1, range2));
 	}
 	
 	@Test
-	public void case_2()	{
-		
+	public void combine_2()	{
+		range1 = null;
+		range2 = new Range(10, 20);
+		assertEquals("The combined value of null and (10, 20) should be (10, 20)", new Range(10, 20), Range.combine(range1, range2));
 	}
 	
-	public void case_3()	{
-		
+	public void combine_3()	{
+		range1 = new Range(10, 20);
+		range2 = new Range(0, 9);
+		assertEquals("The combined value of (10, 20) and (0, 9) should be (0, 20)", new Range(0, 20), Range.combine(range1, range2));
 	}
 
 }
