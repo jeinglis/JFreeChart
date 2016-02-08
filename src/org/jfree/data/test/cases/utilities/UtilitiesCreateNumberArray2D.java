@@ -1,4 +1,4 @@
-package org.jfree.data.test.cases;
+package org.jfree.data.test.cases.utilities;
 
 public class UtilitiesCreateNumberArray2D {
 

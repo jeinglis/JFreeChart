@@ -1,4 +1,4 @@
-package org.jfree.data.test.cases;
+package org.jfree.data.test.cases.range;
 
 import static org.junit.Assert.*;
 

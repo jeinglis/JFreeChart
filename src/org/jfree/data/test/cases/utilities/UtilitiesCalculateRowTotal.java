@@ -1,4 +1,4 @@
-package org.jfree.data.test.cases;
+package org.jfree.data.test.cases.utilities;
 
 import static org.junit.Assert.assertEquals;
 

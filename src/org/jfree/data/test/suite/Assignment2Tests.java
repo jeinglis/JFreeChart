@@ -1,8 +1,8 @@
 package org.jfree.data.test.suite;
 
 
-import org.jfree.data.test.cases.RangeCombineTest;
-import org.jfree.data.test.cases.RangeConstrainTest;
+import org.jfree.data.test.cases.range.RangeCombineTest;
+import org.jfree.data.test.cases.range.RangeConstrainTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
