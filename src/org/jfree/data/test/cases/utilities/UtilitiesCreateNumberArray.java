@@ -26,8 +26,10 @@ public class UtilitiesCreateNumberArray {
 		
 		// for some reason I can't find an assert(double, Object);
 		//assertArrayEquals(data, numberObjs);
+		
+		assertEquals(data.length,numberObjs.length);
+		
 		for(int i = 0; i < data.length; i++)
-			assertEquals(data[i], numberObjs[i]);
+			assertEquals(data[i], numberObjs[i].doubleValue(), .000000001d);
 	}
-
 }

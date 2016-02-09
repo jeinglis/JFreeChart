@@ -2,6 +2,8 @@ package org.jfree.data.test.cases.utilities;
 
 import static org.junit.Assert.assertEquals;
 
+import java.security.InvalidParameterException;
+
 import org.jfree.data.DataUtilities;
 import org.jfree.data.Values2D;
 import org.jmock.Expectations;
@@ -26,7 +28,8 @@ public class UtilitiesCalculateRowTotal {
 		mockingContext = null;
 	}
 	
-	@Test(expected=NullPointerException.class)
+	@Test(expected=InvalidParameterException.class)
+//	@Test(expected=NullPointerException.class)
 	public void calculateRowTotal_1() {
 		mockingContext.checking(new Expectations() {
 			{ 
