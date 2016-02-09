@@ -63,17 +63,13 @@ public class UtilitiesGetCumulativePercentages {
 		KeyedValues result = DataUtilities.getCumulativePercentages(data);
 
 		double comSum = 16;
-		double expectedRunningSum = 0;
 		double expectedSum = 0;
-		double actualRunningSum = 0;
 		double actualSum = 0;
 		
 		for(int i = 0; i < data.getItemCount(); i++){
 			assertEquals(i, result.getKey(i));
-			expectedRunningSum += data.getValue(i).doubleValue();
-			expectedSum = (data.getValue(i).doubleValue()/comSum)*(expectedRunningSum/comSum);
-			actualRunningSum += result.getValue(i).doubleValue();
-			actualSum = (result.getValue(i).doubleValue()/comSum)*(actualRunningSum/comSum);
+			expectedSum = (data.getValue(i).doubleValue()/comSum);
+			actualSum = (result.getValue(i).doubleValue()/comSum);
 			assertEquals(expectedSum, actualSum, .000000001d);
 		}
 	}
@@ -82,15 +78,15 @@ public class UtilitiesGetCumulativePercentages {
 	public void getCumulativePercentages_3() {
 //		mockingContext.checking(new Expectations() {
 //			{ 
-////				allowing(data).getItemCount();
-////				will(returnValue(3));
-//				
-////				allowing(data).getKey(0);
-////				will(returnValue(0));
-////				allowing(data).getKey(1);
-////				will(returnValue(1));
-////				allowing(data).getKey(2);
-////				will(returnValue(2));
+//				allowing(data).getItemCount();
+//				will(returnValue(3));
+				
+//				allowing(data).getKey(0);
+//				will(returnValue(0));
+//				allowing(data).getKey(1);
+//				will(returnValue(1));
+//				allowing(data).getKey(2);
+//				will(returnValue(2));
 //			}
 //			});
 //
