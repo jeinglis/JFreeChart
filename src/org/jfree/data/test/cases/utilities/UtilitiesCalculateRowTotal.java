@@ -81,6 +81,10 @@ public class UtilitiesCalculateRowTotal {
 				will(returnValue(5));
 				one(values).getValue(1, 2);
 				will(returnValue(6));
+				
+				ignoring(values).getValue(-1, 0);
+				ignoring(values).getValue(-1, 1);
+				ignoring(values).getValue(-1, 2);
 			}
 			});
 		
@@ -102,6 +106,10 @@ public class UtilitiesCalculateRowTotal {
 				will(returnValue(5));
 				one(values).getValue(1, 2);
 				will(returnValue(6));
+				
+				ignoring(values).getValue(3, 0);
+				ignoring(values).getValue(3, 1);
+				ignoring(values).getValue(3, 2);
 			}
 			});
 		

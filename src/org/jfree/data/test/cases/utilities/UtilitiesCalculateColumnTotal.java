@@ -81,6 +81,10 @@ public class UtilitiesCalculateColumnTotal {
 				will(returnValue(5));
 				one(values).getValue(2, 1);
 				will(returnValue(8));
+				
+				ignoring(values).getValue(0, -1);
+				ignoring(values).getValue(1, -1);
+				ignoring(values).getValue(2, -1);
 			}
 			});
 		
@@ -100,6 +104,10 @@ public class UtilitiesCalculateColumnTotal {
 				will(returnValue(5));
 				one(values).getValue(2, 1);
 				will(returnValue(8));
+				
+				ignoring(values).getValue(0, 3);
+				ignoring(values).getValue(1, 3);
+				ignoring(values).getValue(2, 3);
 			}
 			});
 		
