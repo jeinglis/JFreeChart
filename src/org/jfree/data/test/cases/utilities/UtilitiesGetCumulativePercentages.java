@@ -18,12 +18,12 @@ import org.junit.Test;
 public class UtilitiesGetCumulativePercentages {
 
 	private Mockery mockingContext;
-	private Values2D values;
+	private KeyedValues data;
 	
 	@Before
 	public void setup() throws Exception	{
 		mockingContext = new Mockery();
-		values = mockingContext.mock(Values2D.class);
+		data = mockingContext.mock(KeyedValues.class);
 	}
 	
 	@After
@@ -38,40 +38,50 @@ public class UtilitiesGetCumulativePercentages {
 	
 	@Test
 	public void getCumulativePercentages_2() {
+		// We use mocking here because we can't instantiate interfaces
 		mockingContext.checking(new Expectations() {
 			{ 
-				one(values).getColumnCount();
-				will(returnValue(2));
-				one(values).getRowCount();
+				allowing(data).getItemCount();
 				will(returnValue(3));
 				
-				one(values).getValue(0, 0);
+				allowing(data).getKey(0);
 				will(returnValue(0));
-				one(values).getValue(0, 1);
-				will(returnValue(5));
-				
-				one(values).getValue(1, 0);
+				allowing(data).getKey(1);
 				will(returnValue(1));
-				one(values).getValue(1, 1);
-				will(returnValue(9));
-				
-				one(values).getValue(2, 0);
+				allowing(data).getKey(2);
 				will(returnValue(2));
-				one(values).getValue(2, 1);
+				
+				allowing(data).getValue(0);
+				will(returnValue(5));
+				allowing(data).getValue(1);
+				will(returnValue(9));
+				allowing(data).getValue(2);
 				will(returnValue(2));
 			}
 			});
+
+		KeyedValues result = DataUtilities.getCumulativePercentages(data);
+
+		double comSum = 16;
+		double expectedRunningSum = 0;
+		double expectedSum = 0;
+		double actualRunningSum = 0;
+		double actualSum = 0;
 		
-		double result = DataUtilities.calculateColumnTotal(values, 0);
-		
-		KeyedValues data;
-		DataUtilities.getCumulativePercentages(data);
+		for(int i = 0; i < data.getItemCount(); i++){
+			assertEquals(i, result.getKey(i));
+			expectedRunningSum += data.getValue(i).doubleValue();
+			expectedSum = (data.getValue(i).doubleValue()/comSum)*(expectedRunningSum/comSum);
+			actualRunningSum += result.getValue(i).doubleValue();
+			actualSum = (result.getValue(i).doubleValue()/comSum)*(actualRunningSum/comSum);
+			assertEquals(expectedSum, actualSum, .000000001d);
+		}
 	}
 	
 	@Test
 	public void getCumulativePercentages_3() {
-		KeyedValues data;
-		DataUtilities.getCumulativePercentages(data);
+//		KeyedValues data;
+//		DataUtilities.getCumulativePercentages(data);
 	}
 
 }
