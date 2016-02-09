@@ -22,6 +22,7 @@ public class RangeExpandTest {
 
 	@Test(expected = InvalidParameterException.class)
 	public void ExpandNullRange() {
+		exampleRange = null;
 		Range.expand(exampleRange,lowerMargin,upperMargin);
 	}
 	
