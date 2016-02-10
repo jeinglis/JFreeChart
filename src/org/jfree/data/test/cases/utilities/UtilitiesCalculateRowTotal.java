@@ -32,7 +32,7 @@ public class UtilitiesCalculateRowTotal {
 	/**
 	 * Test method with invalid data object
 	 */
-	@Test
+	@Test(expected=InvalidParameterException.class)
 	public void calculateRowTotal_1() {
 		mockingContext.checking(new Expectations() {
 			{ 

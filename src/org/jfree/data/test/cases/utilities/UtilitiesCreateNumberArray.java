@@ -2,6 +2,8 @@ package org.jfree.data.test.cases.utilities;
 
 import static org.junit.Assert.*;
 
+import java.security.InvalidParameterException;
+
 import org.jfree.data.DataUtilities;
 import org.junit.Test;
 
@@ -10,7 +12,7 @@ public class UtilitiesCreateNumberArray {
 	/**
 	 * Test method with null data
 	 */
-	@Test(expected=IllegalArgumentException.class)
+	@Test(expected=InvalidParameterException.class)
 	public void createNumberArray_1() {
 		double[] data = null;
 		DataUtilities.createNumberArray(data);

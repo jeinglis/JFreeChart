@@ -2,6 +2,8 @@ package org.jfree.data.test.cases.utilities;
 
 import static org.junit.Assert.assertEquals;
 
+import java.security.InvalidParameterException;
+
 import org.jfree.data.DataUtilities;
 import org.jfree.data.KeyedValues;
 import org.jmock.Expectations;
@@ -29,7 +31,7 @@ public class UtilitiesGetCumulativePercentages {
 	/**
 	 * Test method with invalid data
 	 */
-	@Test(expected=IllegalArgumentException.class)
+	@Test(expected=InvalidParameterException.class)
 	public void getCumulativePercentages_1() {
 		DataUtilities.getCumulativePercentages(null);
 	}
@@ -62,22 +64,14 @@ public class UtilitiesGetCumulativePercentages {
 			});
 
 		KeyedValues result = DataUtilities.getCumulativePercentages(data);
-
-		double comSum = 16;
-		double expectedSum = 0;
-		double actualSum = 0;
 		
-		for(int i = 0; i < data.getItemCount(); i++){
-			assertEquals(i, result.getKey(i));
-			
-			expectedSum = (data.getValue(i).doubleValue()/comSum);
-			actualSum = (result.getValue(i).doubleValue()/comSum);
-			assertEquals(expectedSum, actualSum, .000000001d);
-		}
+		assertEquals(0.3125, result.getValue(0).doubleValue(), .000000001d);
+		assertEquals(0.875, result.getValue(1).doubleValue(), .000000001d);
+		assertEquals(1.0, result.getValue(2).doubleValue(), .000000001d);
 	}
 	
 	/**
-	 * Test method with invalid data
+	 * Test method with valid data
 	 */
 	@Test
 	public void getCumulativePercentages_3() {
@@ -86,9 +80,9 @@ public class UtilitiesGetCumulativePercentages {
 				allowing(data).getItemCount();
 				will(returnValue(3));
 				
-				allowing(data).getKey(0);
+				allowing(data).getKey(5);
 				will(returnValue(0));
-				allowing(data).getKey(1);
+				allowing(data).getKey(9);
 				will(returnValue(1));
 				allowing(data).getKey(2);
 				will(returnValue(2));
@@ -104,49 +98,23 @@ public class UtilitiesGetCumulativePercentages {
 
 		KeyedValues result = DataUtilities.getCumulativePercentages(data);
 		
-		double comSum = 16;
-//		double expectedSum = 0;
-		double actualSum = 0;
-		
-		for(int i = 0; i < data.getItemCount(); i++){
-			assertEquals(i, result.getKey(i));
-//			expectedSum = (data.getValue(i).doubleValue()/comSum);
-			actualSum = (result.getValue(i).doubleValue()/comSum);
-			assertEquals(Double.NaN, actualSum, .000000001d);
-		}
+		assertEquals(Double.NaN, result.getValue(0).doubleValue(), .000000001d);
+		assertEquals(Double.NaN, result.getValue(1).doubleValue(), .000000001d);
+		assertEquals(Double.NaN, result.getValue(2).doubleValue(), .000000001d);
 	}
 	
 	/**
 	 * Test method with empty data set
 	 */
-	@Test
+	@Test(expected=InvalidParameterException.class)
 	public void getCumulativePercentages_4() {
 		mockingContext.checking(new Expectations() {
 			{ 
 				allowing(data).getItemCount();
-				will(returnValue(3));
-				
-//				allowing(data).getKey(0);
-//				will(returnValue(0));
-//				allowing(data).getKey(1);
-//				will(returnValue(1));
-//				allowing(data).getKey(2);
-//				will(returnValue(2));
+				will(returnValue(0));
 			}
 			});
 
 		KeyedValues result = DataUtilities.getCumulativePercentages(data);
-		
-		double comSum = 16;
-		double expectedSum = 0;
-		double actualSum = 0;
-		
-		for(int i = 0; i < data.getItemCount(); i++){
-			assertEquals(i, result.getKey(i));
-			expectedSum = (data.getValue(i).doubleValue()/comSum);
-			actualSum = (result.getValue(i).doubleValue()/comSum);
-			assertEquals(expectedSum, actualSum, .000000001d);
-		}
 	}
-
 }
