@@ -31,7 +31,7 @@ public class UtilitiesGetCumulativePercentages {
 		mockingContext = null;
 	}
 	
-	@Test(expected=InvalidParameterException.class)
+	@Test(expected=IllegalArgumentException.class)
 	public void getCumulativePercentages_1() {
 		DataUtilities.getCumulativePercentages(null);
 	}

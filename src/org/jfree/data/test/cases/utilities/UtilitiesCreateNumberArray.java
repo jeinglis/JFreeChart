@@ -14,7 +14,7 @@ import org.junit.Test;
 
 public class UtilitiesCreateNumberArray {
 	
-	@Test(expected=InvalidParameterException.class)
+	@Test(expected=IllegalArgumentException.class)
 	public void createNumberArray_1() {
 		double[] data = null;
 		DataUtilities.createNumberArray(data);
