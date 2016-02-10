@@ -2,8 +2,6 @@ package org.jfree.data.test.cases.utilities;
 
 import static org.junit.Assert.assertEquals;
 
-import java.security.InvalidParameterException;
-
 import org.jfree.data.DataUtilities;
 import org.junit.Test;
 

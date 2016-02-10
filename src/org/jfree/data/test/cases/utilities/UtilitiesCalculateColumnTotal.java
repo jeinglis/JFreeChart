@@ -1,7 +1,6 @@
 package org.jfree.data.test.cases.utilities;
 
 import static org.junit.Assert.*;
-import java.security.InvalidParameterException;
 import org.jfree.data.DataUtilities;
 import org.jfree.data.Values2D;
 import org.jmock.Expectations;
