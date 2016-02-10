@@ -1,6 +1,9 @@
 package org.jfree.data.test.cases.utilities;
 
 import static org.junit.Assert.assertEquals;
+
+import java.security.InvalidParameterException;
+
 import org.jfree.data.DataUtilities;
 import org.jfree.data.Values2D;
 import org.jmock.Expectations;
@@ -24,7 +27,8 @@ public class UtilitiesCalculateRowTotal {
 	public void teardown()	{
 		mockingContext = null;
 	}
-	
+
+	// From the javadoc, an InvalidParameterException should be thrown
 	/**
 	 * Test method with invalid data object
 	 */
@@ -39,8 +43,7 @@ public class UtilitiesCalculateRowTotal {
 			}
 			});
 		
-		double result = DataUtilities.calculateRowTotal(values, 0);
-		assertEquals(0.0, result, .000000001d);
+		double result = DataUtilities.calculateRowTotal(null, 0);
 	}
 	
 	/**
@@ -123,6 +126,21 @@ public class UtilitiesCalculateRowTotal {
 		assertEquals(0.0, result, .000000001d);
 	}
 	
+	/**
+	 * 
+	 */
+	@Test(expected=InvalidParameterException.class)
+	public void calculateRowTotal_5() {
+		mockingContext.checking(new Expectations() {
+			{ 
+				allowing(values).getRowCount();
+				will(returnValue(-1));
+				allowing(values).getColumnCount();
+				will(returnValue(-1));
+			}
+			});
+		double result = DataUtilities.calculateRowTotal(values, 0);
+	}
 	
 
 }
