@@ -27,14 +27,14 @@ public class UtilitiesCalculateColumnTotal {
 	}
 	
 	// From the javadoc, an InvalidParameterException should be thrown
-	@Test
+	@Test//(expected=InvalidParameterException.class)
 	public void calculateColumnTotal_1() {
 		mockingContext.checking(new Expectations() {
 			{ 
 				allowing(values).getRowCount();
-				will(returnValue(0));
+				will(returnValue(-1));
 				allowing(values).getColumnCount();
-				will(returnValue(0));
+				will(returnValue(-1));
 			}
 			});
 		
