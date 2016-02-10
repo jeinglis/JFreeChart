@@ -32,7 +32,7 @@ public class UtilitiesGetCumulativePercentages {
 	}
 	
 	/**
-	 * Test with invalid data
+	 * Test method with invalid data
 	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void getCumulativePercentages_1() {
@@ -40,7 +40,7 @@ public class UtilitiesGetCumulativePercentages {
 	}
 	
 	/**
-	 * Test with valid data
+	 * Test method with valid data
 	 */
 	@Test
 	public void getCumulativePercentages_2() {
@@ -82,7 +82,7 @@ public class UtilitiesGetCumulativePercentages {
 	}
 	
 	/**
-	 * Test with invalid data
+	 * Test method with invalid data
 	 */
 	@Test
 	public void getCumulativePercentages_3() {
@@ -121,6 +121,9 @@ public class UtilitiesGetCumulativePercentages {
 		}
 	}
 	
+	/**
+	 * Test method with empty data set
+	 */
 	@Test
 	public void getCumulativePercentages_4() {
 		mockingContext.checking(new Expectations() {

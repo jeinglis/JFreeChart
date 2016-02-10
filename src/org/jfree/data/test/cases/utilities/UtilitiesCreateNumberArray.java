@@ -14,12 +14,18 @@ import org.junit.Test;
 
 public class UtilitiesCreateNumberArray {
 	
+	/**
+	 * Test method with null data
+	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void createNumberArray_1() {
 		double[] data = null;
 		DataUtilities.createNumberArray(data);
 	}
 	
+	/**
+	 * Test method with valid data
+	 */
 	@Test
 	public void createNumberArray_2() {
 		double[] data = {1, -2, 3.5, 4, 5.75};
