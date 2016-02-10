@@ -16,19 +16,16 @@ public class UtilitiesCreateNumberArray {
 	
 	@Test(expected=InvalidParameterException.class)
 	public void createNumberArray_1() {
-		DataUtilities.createNumberArray(null);
+		double[] data = null;
+		DataUtilities.createNumberArray(data);
 	}
 	
 	@Test
 	public void createNumberArray_2() {
 		double[] data = {1, -2, 3.5, 4, 5.75};
 		Number[] numberObjs = DataUtilities.createNumberArray(data);
-		
-		// for some reason I can't find an assert(double, Object);
-		//assertArrayEquals(data, numberObjs);
-		
+
 		assertEquals(data.length,numberObjs.length);
-		
 		for(int i = 0; i < data.length; i++)
 			assertEquals(data[i], numberObjs[i].doubleValue(), .000000001d);
 	}

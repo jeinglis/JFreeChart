@@ -11,7 +11,8 @@ public class UtilitiesCreateNumberArray2D {
 
 	@Test(expected=InvalidParameterException.class)
 	public void createNumberArray2D_1() {
-		DataUtilities.createNumberArray2D(null);
+		double[][] data = null;
+		DataUtilities.createNumberArray2D(data);
 	}
 
 	@Test

@@ -1,9 +1,7 @@
 package org.jfree.data.test.cases.utilities;
 
 import static org.junit.Assert.assertEquals;
-
 import java.security.InvalidParameterException;
-
 import org.jfree.data.DataUtilities;
 import org.jfree.data.Values2D;
 import org.jmock.Expectations;
@@ -29,21 +27,19 @@ public class UtilitiesCalculateRowTotal {
 	}
 	
 	// From the javadoc, an InvalidParameterException should be thrown
-	@Test(expected=InvalidParameterException.class)
+	@Test
 	public void calculateRowTotal_1() {
 		mockingContext.checking(new Expectations() {
 			{ 
-				one(values).getRowCount();
-				will(returnValue(2));
-				one(values).getValue(0, 0);
-				will(returnValue(7.5));
-				one(values).getValue(1, 0);
-				will(returnValue(2.5));
+				allowing(values).getRowCount();
+				will(returnValue(0));
+				allowing(values).getColumnCount();
+				will(returnValue(0));
 			}
 			});
 		
-		double result = DataUtilities.calculateColumnTotal(null, 0);
-		assertEquals(10.0, result, .000000001d);
+		double result = DataUtilities.calculateRowTotal(values, 0);
+		assertEquals(0.0, result, .000000001d);
 	}
 	
 	@Test
