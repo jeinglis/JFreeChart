@@ -31,11 +31,17 @@ public class UtilitiesGetCumulativePercentages {
 		mockingContext = null;
 	}
 	
-	@Test(expected=InvalidParameterException.class)
+	/**
+	 * Test with invalid data
+	 */
+	@Test(expected=IllegalArgumentException.class)
 	public void getCumulativePercentages_1() {
 		DataUtilities.getCumulativePercentages(null);
 	}
 	
+	/**
+	 * Test with valid data
+	 */
 	@Test
 	public void getCumulativePercentages_2() {
 		// We use mocking here because we can't instantiate interfaces
@@ -75,6 +81,9 @@ public class UtilitiesGetCumulativePercentages {
 		}
 	}
 	
+	/**
+	 * Test with invalid data
+	 */
 	@Test
 	public void getCumulativePercentages_3() {
 		mockingContext.checking(new Expectations() {

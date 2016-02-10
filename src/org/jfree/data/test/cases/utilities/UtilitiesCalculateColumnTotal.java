@@ -15,6 +15,7 @@ public class UtilitiesCalculateColumnTotal {
 	private Mockery mockingContext;
 	private Values2D values;
 	
+	
 	@Before
 	public void setup() throws Exception	{
 		mockingContext = new Mockery();
@@ -26,6 +27,9 @@ public class UtilitiesCalculateColumnTotal {
 		mockingContext = null;
 	}
 	
+	/**
+	 * Test for invalid input to method
+	 */
 	// From the javadoc, an InvalidParameterException should be thrown
 	@Test//(expected=InvalidParameterException.class)
 	public void calculateColumnTotal_1() {
@@ -42,6 +46,9 @@ public class UtilitiesCalculateColumnTotal {
 		assertEquals(0.0, result, .000000001d);
 	}
 	
+	/**
+	 * Test with valid data object and a column in the scope
+	 */
 	@Test
 	public void calculateColumnTotal_2() {
 		mockingContext.checking(new Expectations() {
@@ -64,6 +71,10 @@ public class UtilitiesCalculateColumnTotal {
 		assertEquals(15.0, result, .000000001d);
 	}
 	
+	
+	/**
+	 * Test with valid data object and a negative column value
+	 */
 	@Test
 	public void calculateColumnTotal_3() {
 		mockingContext.checking(new Expectations() {
@@ -88,6 +99,10 @@ public class UtilitiesCalculateColumnTotal {
 		assertEquals(0.0, result, .000000001d);
 	}
 	
+	
+	/**
+	 * Test with valid data object and a positive column value above the data table scope
+	 */
 	@Test
 	public void calculateColumnTotal_4() {
 		mockingContext.checking(new Expectations() {

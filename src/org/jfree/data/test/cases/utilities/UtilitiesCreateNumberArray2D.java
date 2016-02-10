@@ -9,7 +9,7 @@ import org.junit.Test;
 
 public class UtilitiesCreateNumberArray2D {
 
-	@Test(expected=InvalidParameterException.class)
+	@Test(expected=IllegalArgumentException.class)
 	public void createNumberArray2D_1() {
 		double[][] data = null;
 		DataUtilities.createNumberArray2D(data);
