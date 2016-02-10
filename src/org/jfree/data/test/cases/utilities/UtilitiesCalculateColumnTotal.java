@@ -2,6 +2,8 @@ package org.jfree.data.test.cases.utilities;
 
 import static org.junit.Assert.*;
 
+import java.security.InvalidParameterException;
+
 import org.jfree.data.DataUtilities;
 import org.jfree.data.Values2D;
 import org.jmock.Expectations;
@@ -26,39 +28,40 @@ public class UtilitiesCalculateColumnTotal {
 		mockingContext = null;
 	}
 	
-	@Test(expected=NullPointerException.class)
-	//@Test(expected=InvalidParameterException.class)
+	// From the javadoc, an InvalidParameterException should be thrown
+	@Test(expected=InvalidParameterException.class)
 	public void calculateColumnTotal_1() {
 		mockingContext.checking(new Expectations() {
 			{ 
 				one(values).getRowCount();
+//				will(returnValue(0));
 				will(returnValue(2));
-				one(values).getColumnCount();
+				allowing(values).getColumnCount();
 				will(returnValue(3));
-				one(values).getValue(0, 0);
+				allowing(values).getValue(0, 0);
 				will(returnValue(7.5));
-				one(values).getValue(1, 0);
+				allowing(values).getValue(1, 0);
 				will(returnValue(2.5));
 			}
 			});
 		
-		double result = DataUtilities.calculateColumnTotal(null, 0);
-		assertEquals(10.0, result, .000000001d);
+		double result = DataUtilities.calculateColumnTotal(values, 0);
+		assertEquals(0.0, result, .000000001d);
 	}
 	
 	@Test
 	public void calculateColumnTotal_2() {
 		mockingContext.checking(new Expectations() {
 			{ 
-				one(values).getRowCount();
+				allowing(values).getRowCount();
 				will(returnValue(3));
-				one(values).getColumnCount();
+				allowing(values).getColumnCount();
 				will(returnValue(3));
-				one(values).getValue(0, 1);
+				allowing(values).getValue(0, 1);
 				will(returnValue(2));
-				one(values).getValue(1, 1);
+				allowing(values).getValue(1, 1);
 				will(returnValue(5));
-				one(values).getValue(2, 1);
+				allowing(values).getValue(2, 1);
 				will(returnValue(8));
 			}
 			});
@@ -71,20 +74,25 @@ public class UtilitiesCalculateColumnTotal {
 	public void calculateColumnTotal_3() {
 		mockingContext.checking(new Expectations() {
 			{ 
-				one(values).getRowCount();
+				allowing(values).getRowCount();
 				will(returnValue(3));
-				one(values).getColumnCount();
+				allowing(values).getColumnCount();
 				will(returnValue(3));
-				one(values).getValue(0, 1);
+				allowing(values).getValue(0, 1);
 				will(returnValue(2));
-				one(values).getValue(1, 1);
+				allowing(values).getValue(1, 1);
 				will(returnValue(5));
-				one(values).getValue(2, 1);
+				allowing(values).getValue(2, 1);
 				will(returnValue(8));
 				
-				ignoring(values).getValue(0, -1);
-				ignoring(values).getValue(1, -1);
-				ignoring(values).getValue(2, -1);
+				// the javadoc for getValue() throws IndexOutOfBoundsException
+				// when an invalid parameter is passed
+				allowing(values).getValue(0, -1);
+				will(throwException(new IndexOutOfBoundsException()));
+				allowing(values).getValue(1, -1);
+				will(throwException(new IndexOutOfBoundsException()));
+				allowing(values).getValue(2, -1);
+				will(throwException(new IndexOutOfBoundsException()));
 			}
 			});
 		
@@ -96,18 +104,25 @@ public class UtilitiesCalculateColumnTotal {
 	public void calculateColumnTotal_4() {
 		mockingContext.checking(new Expectations() {
 			{ 
-				one(values).getRowCount();
+				allowing(values).getRowCount();
 				will(returnValue(3));
-				one(values).getValue(0, 1);
+				allowing(values).getColumnCount();
+				will(returnValue(3));
+				allowing(values).getValue(0, 1);
 				will(returnValue(2));
-				one(values).getValue(1, 1);
+				allowing(values).getValue(1, 1);
 				will(returnValue(5));
-				one(values).getValue(2, 1);
+				allowing(values).getValue(2, 1);
 				will(returnValue(8));
 				
-				ignoring(values).getValue(0, 3);
-				ignoring(values).getValue(1, 3);
-				ignoring(values).getValue(2, 3);
+				// the javadoc for getValue() throws IndexOutOfBoundsException
+				// when an invalid parameter is passed
+				allowing(values).getValue(0, 3);
+				will(throwException(new IndexOutOfBoundsException()));
+				allowing(values).getValue(1, 3);
+				will(throwException(new IndexOutOfBoundsException()));
+				allowing(values).getValue(2, 3);
+				will(throwException(new IndexOutOfBoundsException()));
 			}
 			});
 		

@@ -28,8 +28,8 @@ public class UtilitiesCalculateRowTotal {
 		mockingContext = null;
 	}
 	
+	// From the javadoc, an InvalidParameterException should be thrown
 	@Test(expected=InvalidParameterException.class)
-//	@Test(expected=NullPointerException.class)
 	public void calculateRowTotal_1() {
 		mockingContext.checking(new Expectations() {
 			{ 
@@ -71,20 +71,25 @@ public class UtilitiesCalculateRowTotal {
 	public void calculateRowTotal_3() {
 		mockingContext.checking(new Expectations() {
 			{ 
-				one(values).getRowCount();
+				allowing(values).getRowCount();
 				will(returnValue(3));
-				one(values).getColumnCount();
+				allowing(values).getColumnCount();
 				will(returnValue(3));
-				one(values).getValue(1, 0);
-				will(returnValue(4));
-				one(values).getValue(1, 1);
+				allowing(values).getValue(0, 1);
+				will(returnValue(2));
+				allowing(values).getValue(1, 1);
 				will(returnValue(5));
-				one(values).getValue(1, 2);
-				will(returnValue(6));
+				allowing(values).getValue(2, 1);
+				will(returnValue(8));
 				
-				ignoring(values).getValue(-1, 0);
-				ignoring(values).getValue(-1, 1);
-				ignoring(values).getValue(-1, 2);
+				// the javadoc for getValue() throws IndexOutOfBoundsException
+				// when an invalid parameter is passed
+				allowing(values).getValue(-1, 0);
+				will(throwException(new IndexOutOfBoundsException()));
+				allowing(values).getValue(-1, 1);
+				will(throwException(new IndexOutOfBoundsException()));
+				allowing(values).getValue(-1, 2);
+				will(throwException(new IndexOutOfBoundsException()));
 			}
 			});
 		
@@ -96,20 +101,25 @@ public class UtilitiesCalculateRowTotal {
 	public void calculateRowTotal_4() {
 		mockingContext.checking(new Expectations() {
 			{ 
-				one(values).getRowCount();
+				allowing(values).getRowCount();
 				will(returnValue(3));
-				one(values).getColumnCount();
+				allowing(values).getColumnCount();
 				will(returnValue(3));
-				one(values).getValue(1, 0);
-				will(returnValue(4));
-				one(values).getValue(1, 1);
+				allowing(values).getValue(0, 1);
+				will(returnValue(2));
+				allowing(values).getValue(1, 1);
 				will(returnValue(5));
-				one(values).getValue(1, 2);
-				will(returnValue(6));
+				allowing(values).getValue(2, 1);
+				will(returnValue(8));
 				
-				ignoring(values).getValue(3, 0);
-				ignoring(values).getValue(3, 1);
-				ignoring(values).getValue(3, 2);
+				// the javadoc for getValue() throws IndexOutOfBoundsException
+				// when an invalid parameter is passed
+				allowing(values).getValue(3, 0);
+				will(throwException(new IndexOutOfBoundsException()));
+				allowing(values).getValue(3, 1);
+				will(throwException(new IndexOutOfBoundsException()));
+				allowing(values).getValue(3, 2);
+				will(throwException(new IndexOutOfBoundsException()));
 			}
 			});
 		
