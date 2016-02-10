@@ -8,12 +8,18 @@ import org.junit.Test;
 public class RangeGetLengthTest {
 	private Range range;
 	
+	/**
+	 * Test a Range with length 0
+	 */
 	@Test
 	public void getLength_1() {
 		range = new Range(5, 5);
 		assertEquals("The length of (5, 5) should be 0", 0, range.getLength(), 0);
 	}
 	
+	/**
+	 * Test method on Range with valid length
+	 */
 	@Test
 	public void getLength_2() {
 		range = new Range(0, 10);

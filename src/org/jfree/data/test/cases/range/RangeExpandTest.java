@@ -18,13 +18,18 @@ public class RangeExpandTest {
 		exampleRange = new Range(0,10);
 	}
 
-
+	/**
+	 * Test method with a null range
+	 */
 	@Test(expected = InvalidParameterException.class)
 	public void ExpandNullRange() {
 		exampleRange = null;
 		Range.expand(exampleRange,lowerMargin,upperMargin);
 	}
 	
+	/**
+	 * Test method with valid range and positive margins
+	 */
 	@Test
 	public void ValidRangeWithPositiveMargins() {
 		lowerMargin = 0.5;
@@ -34,6 +39,9 @@ public class RangeExpandTest {
 		assertEquals("Range should be expanded to (-5,15)",expectedRange,Range.expand(exampleRange,lowerMargin,upperMargin));
 	}
 	
+	/**
+	 * Test method with valid range and negative margins
+	 */
 	@Test
 	public void ValidRangeWithNegativeMargins() {
 		lowerMargin = -0.5;
@@ -43,7 +51,9 @@ public class RangeExpandTest {
 		assertEquals("Range should be expanded to (5,8)",expectedRange,Range.expand(exampleRange,lowerMargin,upperMargin));
 	}
 	
-	
+	/**
+	 * Test method with valid range and margins of 0
+	 */
 	@Test
 	public void ValidRangeWithZeroMargins() {
 		lowerMargin = 0;
