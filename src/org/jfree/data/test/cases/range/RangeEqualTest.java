@@ -20,21 +20,33 @@ public class RangeEqualTest {
 		range = null;
 	}
 	
+	/**
+	 * Test method with null input
+	 */
 	@Test
 	public void equals_1() {
 		assertEquals("(0, 10) == NULL should be false", false, range.equals(null));
 	}
 	
+	/**
+	 * Test method with an object that is not a Range
+	 */
 	@Test
 	public void equals_2() {
 		assertEquals("Range == Double should be false", false, range.equals(new Double(10)));
 	}
 	
+	/**
+	 * Test method with two equivalent Range instances
+	 */
 	@Test
 	public void equals_3() {
 		assertEquals("(0, 10) == (0, 10) should be true", true, range.equals(new Range(0, 10)));
 	}
 	
+	/**
+	 * Test method with two different Range instances
+	 */
 	@Test
 	public void equals_4() {
 		assertEquals("(0, 10) == (-5, 5) should be false", false, range.equals(new Range(-5, 5)));
