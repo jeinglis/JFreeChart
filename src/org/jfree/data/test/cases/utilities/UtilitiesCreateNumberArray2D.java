@@ -2,19 +2,23 @@ package org.jfree.data.test.cases.utilities;
 
 import static org.junit.Assert.assertEquals;
 
-import java.security.InvalidParameterException;
-
 import org.jfree.data.DataUtilities;
 import org.junit.Test;
 
 public class UtilitiesCreateNumberArray2D {
 
+	/**
+	 * Test method with null data
+	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void createNumberArray2D_1() {
 		double[][] data = null;
 		DataUtilities.createNumberArray2D(data);
 	}
 
+	/**
+	 * Test method with valid data
+	 */
 	@Test
 	public void createNumberArray2D_2() {
 		double[][] data = {{1, -2, 3.5, 4, 5.75}, {3, -5, 1.5, 6, 9.35}};

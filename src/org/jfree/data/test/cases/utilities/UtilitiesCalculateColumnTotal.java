@@ -1,7 +1,9 @@
 package org.jfree.data.test.cases.utilities;
 
 import static org.junit.Assert.*;
+
 import java.security.InvalidParameterException;
+
 import org.jfree.data.DataUtilities;
 import org.jfree.data.Values2D;
 import org.jmock.Expectations;
@@ -28,7 +30,7 @@ public class UtilitiesCalculateColumnTotal {
 	}
 	
 	/**
-	 * Test for invalid input to method
+	 * Test method with invalid input
 	 */
 	// From the javadoc, an InvalidParameterException should be thrown
 	@Test(expected=InvalidParameterException.class)
@@ -45,7 +47,7 @@ public class UtilitiesCalculateColumnTotal {
 	}
 	
 	/**
-	 * Test with valid data object and a column in the scope
+	 * Test method with valid data object and a column in the scope
 	 */
 	@Test
 	public void calculateColumnTotal_2() {
@@ -71,7 +73,7 @@ public class UtilitiesCalculateColumnTotal {
 	
 	
 	/**
-	 * Test with valid data object and a negative column value
+	 * Test method with valid data object and a negative column value
 	 */
 	@Test
 	public void calculateColumnTotal_3() {
@@ -98,7 +100,7 @@ public class UtilitiesCalculateColumnTotal {
 	
 	
 	/**
-	 * Test with valid data object and a positive column value above the data table scope
+	 * Test method with valid data object and a positive column value above the data table scope
 	 */
 	@Test
 	public void calculateColumnTotal_4() {

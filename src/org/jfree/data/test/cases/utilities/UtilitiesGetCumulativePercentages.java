@@ -2,13 +2,8 @@ package org.jfree.data.test.cases.utilities;
 
 import static org.junit.Assert.assertEquals;
 
-import java.security.InvalidParameterException;
-
 import org.jfree.data.DataUtilities;
-import org.jfree.data.KeyedValue;
 import org.jfree.data.KeyedValues;
-import org.jfree.data.Values;
-import org.jfree.data.Values2D;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.After;
@@ -32,7 +27,7 @@ public class UtilitiesGetCumulativePercentages {
 	}
 	
 	/**
-	 * Test with invalid data
+	 * Test method with invalid data
 	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void getCumulativePercentages_1() {
@@ -40,7 +35,7 @@ public class UtilitiesGetCumulativePercentages {
 	}
 	
 	/**
-	 * Test with valid data
+	 * Test method with valid data
 	 */
 	@Test
 	public void getCumulativePercentages_2() {
@@ -82,7 +77,7 @@ public class UtilitiesGetCumulativePercentages {
 	}
 	
 	/**
-	 * Test with invalid data
+	 * Test method with invalid data
 	 */
 	@Test
 	public void getCumulativePercentages_3() {
@@ -121,6 +116,9 @@ public class UtilitiesGetCumulativePercentages {
 		}
 	}
 	
+	/**
+	 * Test method with empty data set
+	 */
 	@Test
 	public void getCumulativePercentages_4() {
 		mockingContext.checking(new Expectations() {
