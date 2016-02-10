@@ -31,19 +31,17 @@ public class UtilitiesCalculateColumnTotal {
 	 * Test for invalid input to method
 	 */
 	// From the javadoc, an InvalidParameterException should be thrown
-	@Test//(expected=InvalidParameterException.class)
+	@Test(expected=InvalidParameterException.class)
 	public void calculateColumnTotal_1() {
 		mockingContext.checking(new Expectations() {
 			{ 
 				allowing(values).getRowCount();
-				will(returnValue(-1));
+				will(returnValue(0));
 				allowing(values).getColumnCount();
-				will(returnValue(-1));
+				will(returnValue(0));
 			}
 			});
-		
-		double result = DataUtilities.calculateColumnTotal(values, 0);
-		assertEquals(0.0, result, .000000001d);
+		double result = DataUtilities.calculateColumnTotal(null, 0);
 	}
 	
 	/**
@@ -96,7 +94,6 @@ public class UtilitiesCalculateColumnTotal {
 			});
 		
 		double result = DataUtilities.calculateColumnTotal(values, -1);
-		assertEquals(0.0, result, .000000001d);
 	}
 	
 	
@@ -122,9 +119,23 @@ public class UtilitiesCalculateColumnTotal {
 				will(throwException(new IndexOutOfBoundsException()));
 			}
 			});
-		
 		double result = DataUtilities.calculateColumnTotal(values, 3);
-		assertEquals(0.0, result, .000000001d);
+	}
+	
+	/**
+	 * 
+	 */
+	@Test(expected=InvalidParameterException.class)
+	public void calculateColumnTotal_5() {
+		mockingContext.checking(new Expectations() {
+			{ 
+				allowing(values).getRowCount();
+				will(returnValue(-1));
+				allowing(values).getColumnCount();
+				will(returnValue(-1));
+			}
+			});
+		double result = DataUtilities.calculateColumnTotal(values, 0);
 	}
 
 }

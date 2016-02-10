@@ -26,6 +26,9 @@ public class UtilitiesCalculateRowTotal {
 		mockingContext = null;
 	}
 	
+	/**
+	 * 
+	 */
 	// From the javadoc, an InvalidParameterException should be thrown
 	@Test
 	public void calculateRowTotal_1() {
@@ -38,8 +41,7 @@ public class UtilitiesCalculateRowTotal {
 			}
 			});
 		
-		double result = DataUtilities.calculateRowTotal(values, 0);
-		assertEquals(0.0, result, .000000001d);
+		double result = DataUtilities.calculateRowTotal(null, 0);
 	}
 	
 	@Test
@@ -111,6 +113,21 @@ public class UtilitiesCalculateRowTotal {
 		assertEquals(0.0, result, .000000001d);
 	}
 	
+	/**
+	 * 
+	 */
+	@Test(expected=InvalidParameterException.class)
+	public void calculateRowTotal_5() {
+		mockingContext.checking(new Expectations() {
+			{ 
+				allowing(values).getRowCount();
+				will(returnValue(-1));
+				allowing(values).getColumnCount();
+				will(returnValue(-1));
+			}
+			});
+		double result = DataUtilities.calculateRowTotal(values, 0);
+	}
 	
 
 }
