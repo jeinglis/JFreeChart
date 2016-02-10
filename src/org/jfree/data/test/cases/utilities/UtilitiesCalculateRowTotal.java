@@ -75,12 +75,6 @@ public class UtilitiesCalculateRowTotal {
 				will(returnValue(3));
 				allowing(values).getColumnCount();
 				will(returnValue(3));
-				allowing(values).getValue(0, 1);
-				will(returnValue(2));
-				allowing(values).getValue(1, 1);
-				will(returnValue(5));
-				allowing(values).getValue(2, 1);
-				will(returnValue(8));
 				
 				// the javadoc for getValue() throws IndexOutOfBoundsException
 				// when an invalid parameter is passed
@@ -105,12 +99,6 @@ public class UtilitiesCalculateRowTotal {
 				will(returnValue(3));
 				allowing(values).getColumnCount();
 				will(returnValue(3));
-				allowing(values).getValue(0, 1);
-				will(returnValue(2));
-				allowing(values).getValue(1, 1);
-				will(returnValue(5));
-				allowing(values).getValue(2, 1);
-				will(returnValue(8));
 				
 				// the javadoc for getValue() throws IndexOutOfBoundsException
 				// when an invalid parameter is passed
