@@ -26,7 +26,7 @@ public class RangeContainsTest {
 	}
 
 	/**
-	 * Test the method with a number within the range
+	 * Test Range.contains with a number within the range
 	 */
 	@Test
 	public void RangeDoesNotContainsLargerThanUpperValue() {
@@ -34,7 +34,7 @@ public class RangeContainsTest {
 	}
 	
 	/**
-	 * Test the method with a number above the upper range limit
+	 * Test Range.contains with a number above the upper range limit
 	 */
 	@Test
 	public void RangeContainsUpperBoundValue() {
@@ -42,7 +42,7 @@ public class RangeContainsTest {
 	}
 	
 	/**
-	 * Test the method with a number below the lower range limit
+	 * Test Range.contains with a number below the lower range limit
 	 */
 	@Test
 	public void RangeContainsMedianValue() {
@@ -50,7 +50,7 @@ public class RangeContainsTest {
 	}
 
 	/**
-	 * Test the method with an upper bound
+	 * Test Range.contains with an upper bound
 	 */
 	@Test
 	public void RangeContainsLowerBoundValue() {
@@ -58,7 +58,7 @@ public class RangeContainsTest {
 	}
 	
 	/**
-	 * Test the method with a lower bound
+	 * Test Range.contains with a lower bound
 	 */
 	@Test
 	public void RangeDoesNotContainsLessThanLowerBoundValue() {

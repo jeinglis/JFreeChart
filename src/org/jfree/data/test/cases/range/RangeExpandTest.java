@@ -19,7 +19,7 @@ public class RangeExpandTest {
 	}
 
 	/**
-	 * Test method with a null range
+	 * Test Range.expand with a null range
 	 */
 	@Test(expected = InvalidParameterException.class)
 	public void ExpandNullRange() {
@@ -28,7 +28,7 @@ public class RangeExpandTest {
 	}
 	
 	/**
-	 * Test method with valid range and positive margins
+	 * Test Range.expand with valid range and positive margins
 	 */
 	@Test
 	public void ValidRangeWithPositiveMargins() {
@@ -40,7 +40,7 @@ public class RangeExpandTest {
 	}
 	
 	/**
-	 * Test method with valid range and negative margins
+	 * Test Range.expand with valid range and negative margins
 	 */
 	@Test
 	public void ValidRangeWithNegativeMargins() {
@@ -52,7 +52,7 @@ public class RangeExpandTest {
 	}
 	
 	/**
-	 * Test method with valid range and margins of 0
+	 * Test Range.expand with valid range and margins of 0
 	 */
 	@Test
 	public void ValidRangeWithZeroMargins() {

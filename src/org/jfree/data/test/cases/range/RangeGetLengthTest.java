@@ -18,7 +18,7 @@ public class RangeGetLengthTest {
 	}
 	
 	/**
-	 * Test method on Range with valid length
+	 * Test Range.getLength on Range with valid length
 	 */
 	@Test
 	public void getLength_2() {

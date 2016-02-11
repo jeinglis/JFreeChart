@@ -22,7 +22,8 @@ public class RangeCombineTest {
 	}
 	
 	/**
-	 * Test method with 2 null parameters
+	 * Test Range.combine with 2 null parameters
+	 * 
 	 */
 	@Test
 	public void combine_1() {
@@ -32,7 +33,7 @@ public class RangeCombineTest {
 	}
 	
 	/**
-	 * Test method with 1 null parameter
+	 * Test Range.combine with 1 null parameter
 	 */
 	@Test
 	public void combine_2()	{
@@ -42,7 +43,7 @@ public class RangeCombineTest {
 	}
 	
 	/**
-	 * Test method with 2 valid ranges
+	 * Test Range.combine with 2 valid ranges
 	 */
 	@Test
 	public void combine_3()	{

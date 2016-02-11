@@ -21,7 +21,7 @@ public class RangeEqualTest {
 	}
 	
 	/**
-	 * Test method with null input
+	 * Test Range.equals with null input
 	 */
 	@Test
 	public void equals_1() {
@@ -29,7 +29,7 @@ public class RangeEqualTest {
 	}
 	
 	/**
-	 * Test method with an object that is not a Range
+	 * Test Range.equals with an object that is not a Range
 	 */
 	@Test
 	public void equals_2() {
@@ -37,7 +37,7 @@ public class RangeEqualTest {
 	}
 	
 	/**
-	 * Test method with two equivalent Range instances
+	 * Test Range.equals with two equivalent Range instances
 	 */
 	@Test
 	public void equals_3() {
@@ -45,7 +45,7 @@ public class RangeEqualTest {
 	}
 	
 	/**
-	 * Test method with two different Range instances
+	 * Test Range.equals with two different Range instances
 	 */
 	@Test
 	public void equals_4() {
