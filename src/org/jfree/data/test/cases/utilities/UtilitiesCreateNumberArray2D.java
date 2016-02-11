@@ -10,7 +10,7 @@ import org.junit.Test;
 public class UtilitiesCreateNumberArray2D {
 
 	/**
-	 * Test method with null data
+	 * Test DataUtilities.CreateNumberArray2D method with null data
 	 */
 	@Test(expected=InvalidParameterException.class)
 	public void createNumberArray2D_1() {
@@ -19,7 +19,7 @@ public class UtilitiesCreateNumberArray2D {
 	}
 
 	/**
-	 * Test method with valid data
+	 * Test DataUtilities.CreateNumberArray2D method with valid data
 	 */
 	@Test
 	public void createNumberArray2D_2() {

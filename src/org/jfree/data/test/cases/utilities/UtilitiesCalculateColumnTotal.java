@@ -30,7 +30,7 @@ public class UtilitiesCalculateColumnTotal {
 	}
 	
 	/**
-	 * Test method with invalid input
+	 * Test DataUtilities.CalculateColumnTotal method with invalid input
 	 */
 	// From the javadoc, an InvalidParameterException should be thrown
 	@Test(expected=InvalidParameterException.class)
@@ -47,7 +47,7 @@ public class UtilitiesCalculateColumnTotal {
 	}
 	
 	/**
-	 * Test method with valid data object and a column in the scope
+	 * Test DataUtilities.CalculateColumnTotal method with valid data object and a column in the scope
 	 */
 	@Test
 	public void calculateColumnTotal_2() {
@@ -73,7 +73,7 @@ public class UtilitiesCalculateColumnTotal {
 	
 	
 	/**
-	 * Test method with valid data object and a negative column value
+	 * Test DataUtilities.CalculateColumnTotal method with valid data object and a negative column value
 	 */
 	@Test
 	public void calculateColumnTotal_3() {
@@ -100,7 +100,7 @@ public class UtilitiesCalculateColumnTotal {
 	
 	
 	/**
-	 * Test method with valid data object and a positive column value above the data table scope
+	 * Test DataUtilities.CalculateColumnTotal method with valid data object and a positive column value above the data table scope
 	 */
 	@Test
 	public void calculateColumnTotal_4() {
@@ -125,7 +125,7 @@ public class UtilitiesCalculateColumnTotal {
 	}
 	
 	/**
-	 * 
+	 * Test DataUtilities.CalculateColumnTotal method with invalid data
 	 */
 	@Test(expected=InvalidParameterException.class)
 	public void calculateColumnTotal_5() {
