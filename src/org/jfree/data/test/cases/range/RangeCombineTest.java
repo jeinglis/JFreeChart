@@ -1,4 +1,4 @@
-package org.jfree.data.test.cases;
+package org.jfree.data.test.cases.range;
 
 import static org.junit.Assert.*;
 
@@ -21,6 +21,10 @@ public class RangeCombineTest {
 		
 	}
 	
+	/**
+	 * Test Range.combine with 2 null parameters
+	 * 
+	 */
 	@Test
 	public void combine_1() {
 		range1 = null;
@@ -28,6 +32,9 @@ public class RangeCombineTest {
 		assertEquals("The combined value of null and null should be null", null, Range.combine(range1, range2));
 	}
 	
+	/**
+	 * Test Range.combine with 1 null parameter
+	 */
 	@Test
 	public void combine_2()	{
 		range1 = null;
@@ -35,6 +42,10 @@ public class RangeCombineTest {
 		assertEquals("The combined value of null and (10, 20) should be (10, 20)", new Range(10, 20), Range.combine(range1, range2));
 	}
 	
+	/**
+	 * Test Range.combine with 2 valid ranges
+	 */
+	@Test
 	public void combine_3()	{
 		range1 = new Range(10, 20);
 		range2 = new Range(0, 9);
